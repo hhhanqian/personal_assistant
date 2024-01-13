@@ -34,14 +34,16 @@ def load_model():
                        'special_tokens_map.json', 'tokenization_internlm.py', 'tokenizer.model', 'tokenizer_config.json']
     for model_file in model_file_list:
         download(model_repo='wuu-/personal_assistant', model_name=model_file,
-                 output='./hf_merge/' + model_file)
+                 output=os.path.join('hf_merge', model_file))
+    dirlist = os.listdir('hf_merge')
+    print(dirlist)
 
     model = (
-        AutoModelForCausalLM.from_pretrained("./hf_merge", trust_remote_code=True)
+        AutoModelForCausalLM.from_pretrained("hf_merge", trust_remote_code=True)
         .to(torch.bfloat16)
         .cuda()
     )
-    tokenizer = AutoTokenizer.from_pretrained("./hf_merge", trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained("hf_merge", trust_remote_code=True)
     return model, tokenizer
 
 
