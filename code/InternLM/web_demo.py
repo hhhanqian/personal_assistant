@@ -33,6 +33,7 @@ def load_model():
                        'pytorch_model-00005-of-00008.bin', 'pytorch_model-00006-of-00008.bin', 'pytorch_model-00007-of-00008.bin', 'pytorch_model-00008-of-00008.bin',
                        'special_tokens_map.json', 'tokenization_internlm.py', 'tokenizer.model', 'tokenizer_config.json']
     for model_file in model_file_list:
+        print(model_file)
         download(model_repo='wuu-/personal_assistant', model_name=model_file,
                  output=os.path.join('hf_merge', model_file))
     dirlist = os.listdir('hf_merge')
