@@ -27,7 +27,7 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
-    os.system("mkdir ./hf_merge")
+    os.system("mkdir hf_merge")
     model_file_list = ['added_tokens.json', 'config.json', 'configuration_internlm.py', 'generation_config.json', 'modeling_internlm.py', 'pytorch_model.bin.index.json',
                        'pytorch_model-00001-of-00008.bin', 'pytorch_model-00002-of-00008.bin', 'pytorch_model-00003-of-00008.bin', 'pytorch_model-00004-of-00008.bin',
                        'pytorch_model-00005-of-00008.bin', 'pytorch_model-00006-of-00008.bin', 'pytorch_model-00007-of-00008.bin', 'pytorch_model-00008-of-00008.bin',
