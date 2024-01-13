@@ -29,7 +29,7 @@ def on_btn_click():
 def load_model():
     os.system("mkdir hf_merge")
     download(model_repo='wuu-/personal_assistant', model_name='added_tokens.json', output=os.path.join('hf_merge', 'added_tokens.json'))
-    download(model_repo='wuu-/personal_assistant', model_name='config.json', output=os.path.join('hf_merge', 'config.json'))
+    # download(model_repo='wuu-/personal_assistant', model_name='config.json', output=os.path.join('hf_merge', 'config.json'))
     download(model_repo='wuu-/personal_assistant', model_name='configuration_internlm.py', output=os.path.join('hf_merge', 'configuration_internlm.py'))
     download(model_repo='wuu-/personal_assistant', model_name='generation_config.json', output=os.path.join('hf_merge', 'generation_config.json'))
     download(model_repo='wuu-/personal_assistant', model_name='modeling_internlm.py', output=os.path.join('hf_merge', 'modeling_internlm.py'))
