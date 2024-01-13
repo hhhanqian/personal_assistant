@@ -15,6 +15,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.utils import logging
 
 from tools.transformers.interface import GenerationConfig, generate_interactive
+from openxlab.model import download
 
 logger = logging.get_logger(__name__)
 
@@ -25,12 +26,16 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
+    download(model_repo='wuu-/personal_assistant',
+             # model_name='model_name',
+             output='../../config/work_dirs/hf_merge')
+
     model = (
-        AutoModelForCausalLM.from_pretrained("/root/personal_assistant/config/work_dirs/hf_merge", trust_remote_code=True)
+        AutoModelForCausalLM.from_pretrained("../../config/work_dirs/hf_merge", trust_remote_code=True)
         .to(torch.bfloat16)
         .cuda()
     )
-    tokenizer = AutoTokenizer.from_pretrained("/root/personal_assistant/config/work_dirs/hf_merge", trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained("../../config/work_dirs/hf_merge", trust_remote_code=True)
     return model, tokenizer
 
 
