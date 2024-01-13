@@ -26,9 +26,13 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
-    download(model_repo='wuu-/personal_assistant',
-             # model_name='model_name',
-             output='../../config/work_dirs/hf_merge')
+    model_file_list = ['added_tokens.json', 'config.json', 'configuration_internlm.py', 'generation_config.json', 'modeling_internlm.py', 'pytorch_model.bin.index.json',
+                       'pytorch_model-00001-of-00008.bin', 'pytorch_model-00002-of-00008.bin', 'pytorch_model-00003-of-00008.bin', 'pytorch_model-00004-of-00008.bin',
+                       'pytorch_model-00005-of-00008.bin', 'pytorch_model-00006-of-00008.bin', 'pytorch_model-00007-of-00008.bin', 'pytorch_model-00008-of-00008.bin',
+                       'special_tokens_map.json', 'tokenization_internlm.py', 'tokenizer.model', 'tokenizer_config.json']
+    for model_file in model_file_list:
+        download(model_repo='wuu-/personal_assistant', model_name=model_file,
+                 output='../../config/work_dirs/hf_merge' + model_file)
 
     model = (
         AutoModelForCausalLM.from_pretrained("../../config/work_dirs/hf_merge", trust_remote_code=True)
