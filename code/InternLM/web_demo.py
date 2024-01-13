@@ -32,7 +32,7 @@ def load_model():
                        'special_tokens_map.json', 'tokenization_internlm.py', 'tokenizer.model', 'tokenizer_config.json']
     for model_file in model_file_list:
         download(model_repo='wuu-/personal_assistant', model_name=model_file,
-                 output='../../config/work_dirs/hf_merge' + model_file)
+                 output='../../config/work_dirs/hf_merge/' + model_file)
 
     model = (
         AutoModelForCausalLM.from_pretrained("../../config/work_dirs/hf_merge", trust_remote_code=True)
