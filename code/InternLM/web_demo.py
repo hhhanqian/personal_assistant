@@ -28,7 +28,7 @@ def on_btn_click():
 @st.cache_resource
 def load_model():
     os.system("mkdir /home/xlab-app-center/hf_merge")
-    download(model_repo='wuu-/personal_assistant', model_name='added_tokens.json', output='/home/xlab-app-center/hf_merge')
+    download(model_repo='wuu-/personal_assistant', output='/home/xlab-app-center/hf_merge')
     # download(model_repo='wuu-/personal_assistant', model_name='added_tokens.json', output=os.path.join('hf_merge', 'added_tokens.json'))
     # download(model_repo='wuu-/personal_assistant', model_name='config.json', output=os.path.join('hf_merge', 'config.json'))
     # download(model_repo='wuu-/personal_assistant', model_name='configuration_internlm.py', output=os.path.join('hf_merge', 'configuration_internlm.py'))
