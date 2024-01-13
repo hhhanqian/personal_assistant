@@ -27,27 +27,9 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
+    os.system("rm -rf /home/xlab-app-center/hf_merge")
     os.system("mkdir /home/xlab-app-center/hf_merge")
     download(model_repo='wuu-/personal_assistant', output='/home/xlab-app-center/hf_merge')
-    # download(model_repo='wuu-/personal_assistant', model_name='added_tokens.json', output=os.path.join('hf_merge', 'added_tokens.json'))
-    # download(model_repo='wuu-/personal_assistant', model_name='config.json', output=os.path.join('hf_merge', 'config.json'))
-    # download(model_repo='wuu-/personal_assistant', model_name='configuration_internlm.py', output=os.path.join('hf_merge', 'configuration_internlm.py'))
-    # download(model_repo='wuu-/personal_assistant', model_name='generation_config.json', output=os.path.join('hf_merge', 'generation_config.json'))
-    # download(model_repo='wuu-/personal_assistant', model_name='modeling_internlm.py', output=os.path.join('hf_merge', 'modeling_internlm.py'))
-    # download(model_repo='wuu-/personal_assistant', model_name='pytorch_model.bin.index.json', output=os.path.join('hf_merge', 'pytorch_model.bin.index.json'))
-    # download(model_repo='wuu-/personal_assistant', model_name='pytorch_model-00001-of-00008.bin', output=os.path.join('hf_merge', 'pytorch_model-00001-of-00008.bin'))
-    # download(model_repo='wuu-/personal_assistant', model_name='pytorch_model-00002-of-00008.bin', output=os.path.join('hf_merge', 'pytorch_model-00002-of-00008.bin'))
-    # download(model_repo='wuu-/personal_assistant', model_name='pytorch_model-00003-of-00008.bin', output=os.path.join('hf_merge', 'pytorch_model-00003-of-00008.bin'))
-    # download(model_repo='wuu-/personal_assistant', model_name='pytorch_model-00004-of-00008.bin', output=os.path.join('hf_merge', 'pytorch_model-00004-of-00008.bin'))
-    # download(model_repo='wuu-/personal_assistant', model_name='pytorch_model-00005-of-00008.bin', output=os.path.join('hf_merge', 'pytorch_model-00005-of-00008.bin'))
-    # download(model_repo='wuu-/personal_assistant', model_name='pytorch_model-00006-of-00008.bin', output=os.path.join('hf_merge', 'pytorch_model-00006-of-00008.bin'))
-    # download(model_repo='wuu-/personal_assistant', model_name='pytorch_model-00007-of-00008.bin', output=os.path.join('hf_merge', 'pytorch_model-00007-of-00008.bin'))
-    # download(model_repo='wuu-/personal_assistant', model_name='pytorch_model-00008-of-00008.bin', output=os.path.join('hf_merge', 'pytorch_model-00008-of-00008.bin'))
-    # download(model_repo='wuu-/personal_assistant', model_name='special_tokens_map.json', output=os.path.join('hf_merge', 'special_tokens_map.json'))
-    # download(model_repo='wuu-/personal_assistant', model_name='tokenization_internlm.py', output=os.path.join('hf_merge', 'tokenization_internlm.py'))
-    # download(model_repo='wuu-/personal_assistant', model_name='tokenizer.model', output=os.path.join('hf_merge', 'tokenizer.model'))
-    # download(model_repo='wuu-/personal_assistant', model_name='tokenizer_config.json', output=os.path.join('hf_merge', 'tokenizer_config.json'))
-    # download(model_repo='wuu-/personal_assistant', model_name='added_tokens.json', output=os.path.join('hf_merge', 'added_tokens.json'))
 
     model = (
         AutoModelForCausalLM.from_pretrained("/home/xlab-app-center/hf_merge", trust_remote_code=True)
