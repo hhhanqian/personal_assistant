@@ -27,8 +27,8 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
-    os.system("mkdir hf_merge")
-    download(model_repo='wuu-/personal_assistant', model_name='added_tokens.json', output='hf_merge')
+    os.system("mkdir /home/xlab-app-center/hf_merge")
+    download(model_repo='wuu-/personal_assistant', model_name='added_tokens.json', output='/home/xlab-app-center/hf_merge')
     # download(model_repo='wuu-/personal_assistant', model_name='added_tokens.json', output=os.path.join('hf_merge', 'added_tokens.json'))
     # download(model_repo='wuu-/personal_assistant', model_name='config.json', output=os.path.join('hf_merge', 'config.json'))
     # download(model_repo='wuu-/personal_assistant', model_name='configuration_internlm.py', output=os.path.join('hf_merge', 'configuration_internlm.py'))
@@ -50,11 +50,11 @@ def load_model():
     # download(model_repo='wuu-/personal_assistant', model_name='added_tokens.json', output=os.path.join('hf_merge', 'added_tokens.json'))
 
     model = (
-        AutoModelForCausalLM.from_pretrained("hf_merge", trust_remote_code=True)
+        AutoModelForCausalLM.from_pretrained("/home/xlab-app-center/hf_merge", trust_remote_code=True)
         .to(torch.bfloat16)
         .cuda()
     )
-    tokenizer = AutoTokenizer.from_pretrained("hf_merge", trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained("/home/xlab-app-center/hf_merge", trust_remote_code=True)
     return model, tokenizer
 
 
